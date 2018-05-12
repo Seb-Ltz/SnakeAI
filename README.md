@@ -1,7 +1,7 @@
 # Snake AI
 Quickly made AI playing snake.
 
-For now it changes the weights between the 6 input neurons and the 3 output neurons (no hidden layers) randomly and takes the parameters of the best snake with the highest score.
+For now it changes the weights between the 6 input neurons and the 3 output neurons randomly (no hidden layers) and takes the parameters of the best snake with the highest score.
 
 The input neurons are : (all booleans)
 - Is there food left
@@ -16,5 +16,5 @@ And the output neurons are
 - Go straight ahead
 - Go right
 
-# TODO
+## TODO
 - Add a proper genetic algorithm
