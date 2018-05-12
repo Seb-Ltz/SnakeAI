@@ -38,6 +38,8 @@ private:
 
     bool shouldEraseTail = true;
     bool snakeDead = false;
+
+    unsigned int colorId = 0;
 };
 
 

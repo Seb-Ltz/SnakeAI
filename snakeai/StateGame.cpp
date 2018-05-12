@@ -10,7 +10,7 @@ StateGame::StateGame(sf::Vector2u viewportSize) : bestNeuralNetwork(0, 0, 0, 0)
 
     gameView = sf::View(sf::Vector2f(gameSizeX / 2.0f, gameSizeY / 2.0f), sf::Vector2f(ratioX, ratioY));
 
-    bestNeuralNetwork = getBestNeuralNetwork(1000);
+    bestNeuralNetwork = getBestNeuralNetwork(10000);
     snakeGame = new AISnake(gameSizeX, gameSizeY, bestNeuralNetwork);
 
 }

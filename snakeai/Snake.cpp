@@ -2,6 +2,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Snake.h"
+#include "Math.h"
+
+#define DPI (3.141592 * 2)
 
 Snake::Snake(unsigned short sizeX, unsigned short sizeY)
     : sizeX(sizeX), sizeY(sizeY)
@@ -68,7 +71,7 @@ void Snake::step() {
 
     stepsCount++;
 
-
+    colorId++;
 }
 
 void Snake::generateFood() {
@@ -110,12 +113,19 @@ void Snake::render(sf::RenderWindow &window) {
     }
     for(unsigned int i = 0; i < snake.size(); i++) {
         rect.setPosition(snake[i].x, snake[i].y);
+        //Purple gradient
+        //rect.setFillColor(sf::Color(255 - (((float)i / snake.size()) * 200), 255 - (((float)i / snake.size()) * 127 + 127), ((float)i / snake.size()) * 127 + 127));
+        //Rainbow
+        rect.setFillColor(sf::Color(
+                                    sin(((i + colorId) / 6.0) + (DPI / 3) * 0) * 127 + 127,
+                                    sin(((i + colorId) / 6.0) + (DPI / 3) * 1) * 127 + 127,
+                                    sin(((i + colorId) / 6.0) + (DPI / 3) * 2) * 127 + 127));
         window.draw(rect);
     }
 
     //Food
     sf::Vector2i foodPos = getFoodPos();
-    rect.setFillColor(sf::Color::Yellow);
+    rect.setFillColor(sf::Color::Red);
     rect.setPosition(foodPos.x * rect.getSize().x, foodPos.y * rect.getSize().y);
     window.draw(rect);
 
